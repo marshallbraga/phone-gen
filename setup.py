@@ -1,10 +1,9 @@
 from pathlib import Path
-
 from setuptools import find_packages, setup
 
-readme = Path(".", "README.md").absolute()
-with readme.open("r", encoding="utf-8") as file:
-    long_description = file.read()
+# Read the long description from the README file
+readme_path = Path(__file__).parent / "README.md"
+long_description = readme_path.read_text(encoding="utf-8")
 
 setup(
     name="phone_gen",
@@ -24,7 +23,10 @@ setup(
     },
     python_requires=">=3.8",
     include_package_data=True,
-    keywords=["testing", "test-data", "phone-number", "phone", "test-data-generator"],
+    keywords=[
+        "testing", "test-data", "phone-number", "phone",
+        "test-data-generator"
+    ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
